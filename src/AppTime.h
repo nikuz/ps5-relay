@@ -9,11 +9,15 @@ public:
 
     ~AppTime();
 
-    static void obtainInternetTime();
+    static void config();
+
+    static void printLocalTime();
 
     static bool isTimeToSleep();
 
     static bool isTimeBeforeSleep();
+
+    static unsigned long getDelay();
 };
 
 #endif /* AppTime_h */

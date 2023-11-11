@@ -4,8 +4,6 @@
 #include "Led.h"
 #include "Relay.h"
 
-unsigned long delayInterval = 1000 * 60; // one minute
-
 void setup() {
     Serial.begin(SERIAL_BAUD);
 
@@ -15,11 +13,13 @@ void setup() {
     Led::init();
 
     AppWiFi::connect();
-    AppTime::obtainInternetTime();
+    AppTime::config();
     AppWiFi::disconnect();
 }
 
 void loop() {
+    AppTime::printLocalTime();
+
     bool isOn = Relay::isOn();
 
     bool isTimeToSleep = AppTime::isTimeToSleep();
@@ -32,5 +32,5 @@ void loop() {
 
     Led::control();
     
-    delay(delayInterval);
+    delay(AppTime::getDelay());
 }

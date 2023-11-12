@@ -3,10 +3,6 @@
 #include "def.h"
 #include "AppTime.h"
 
-const char* ntpServer = "pool.ntp.org";
-const long  gmtOffset_sec = -25200;
-const int   daylightOffset_sec = 0;
-
 AppTime::AppTime() {}
 
 AppTime::~AppTime() {}
